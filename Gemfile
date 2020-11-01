@@ -17,6 +17,14 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# add languags
+gem 'rails-i18n'
+# add devise
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+# add boolean
+gem 'enum_help'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -39,6 +47,7 @@ group :development do
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'dotenv-rails'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
