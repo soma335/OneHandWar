@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_151731) do
+ActiveRecord::Schema.define(version: 2020_11_02_132325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "combats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "battle_record", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_combats_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,7 +41,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_151731) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.integer "belong", default: 999, null: false
+    t.string "name", null: false
+    t.integer "belong", default: 0, null: false
     t.string "job", default: "足軽", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,4 +55,5 @@ ActiveRecord::Schema.define(version: 2020_09_25_151731) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "combats", "users"
 end

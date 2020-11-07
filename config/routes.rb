@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  namespace :api do
+    get 'combat/index'
+    get 'combat/create'
+  end
   devise_for :users
 
   resources :home

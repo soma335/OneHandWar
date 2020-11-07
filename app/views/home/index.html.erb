@@ -1,15 +1,8 @@
+<%= javascript_pack_tag 'index' %>
 <% if user_signed_in? %>
-  <table>
-    <thead>
-    <tr>
-      <th>レシート</th>
-      <th>購入日</th>
-      <th>値段</th>
-    </tr>
-    </thead>
-    <thead>
-    </thead>
-  </table>
+<div id="combats">
+  <Combat></Combat>
+</div>
 <% else %>
   <h1 class="headline">
     <%= link_to image_tag("rc.png", class:"title_logo"), "/" %>
