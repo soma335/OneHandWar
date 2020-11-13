@@ -25,6 +25,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 # add boolean
 gem 'enum_help'
+gem 'chartkick'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

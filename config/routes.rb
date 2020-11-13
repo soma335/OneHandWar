@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    get 'combat/index'
-    get 'combat/create'
+    resources :combats, only: [:index, :create, :update]
   end
   devise_for :users
 
