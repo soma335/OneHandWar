@@ -1,3 +1,50 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+*{
+  margin:0; padding:0;
+  background-image:url(Washi.jpg);
+  background-size:100% auto;
+}
+
+@font-face {
+  font-family: 'Wahu';
+  src: font-url('/assets/acgyosyo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  width: 100%;
+  padding: 30px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+*{
+  font-family: Times New Roman,'Wahu',serif,fantasy,sans-serif;
+}
+
+.index{
+  text-align: center;
+}
+
+.registration_form{
+  text-align: center;
+}
+
+img.kamon{
+  width:300px;
+  height:300px;
+}
+
+.Book_cover{
+  line-height: 8em;
+}
+
+.notice{
+  text-align: center;
+  padding:50px;
+}
+

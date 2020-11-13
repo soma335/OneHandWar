@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+@font-face {
+    font-family: 'Wahu';
+    src: font-url('/assets/HakusyuKaisyoOiwai.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -3,10 +3,10 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        username: "名前"
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "確認用パスワード"
+        username: "貴殿の名前"
+        email: "貴殿のメールアドレス"
+        password: "ログイン用パスワード"
+        password_confirmation: "ログイン用パスワード(確認)"
         remember_me: "ログインを記憶"
         belong: "所属(東軍か西軍か)"
     models:
