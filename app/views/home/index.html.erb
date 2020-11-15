@@ -1,25 +1,14 @@
-<div class="index">
-  <%= javascript_pack_tag 'index' %>
-  <% if user_signed_in? %>
-  <div id="combats">
-    <Combat></Combat>
-  </div>
-  <% else %>
-    <div class="Book_cover">
-      <%= image_tag 'atamaawasemitsusuhama.gif', class: "kamon" %>
-      <h1>天下分け目の戦いに参戦しよう</h1>
-      <h1>現在の戦況はこちらです</h1>
-
-
-      <%= pie_chart @battle_data, colors: ['#557177', "#7F6967"] %>
-      <% if @east == @west %>
-        <h1>戦力は拮抗しているようです</h1>
-      <% elsif @east > @west %>
-        <h1>東軍が優位です</h1>
-      <% elsif @west > @east %>
-        <h1>西軍が優位です</h1>
-      <% end %>
-      <p>参戦はこちらから</p>
-    </div>
+<div class="Book_cover">
+  <%= image_tag 'atamaawasemitsusuhama.gif', class: "kamon" %>
+  <h1>天下分け目の戦いに参戦しよう</h1>
+  <h1>現在の戦況はこちらです</h1>
+  <%= pie_chart @battle_data, colors: ['#557177', "#7F6967"] %>
+  <% if @east == @west %>
+    <h1>戦力は拮抗しているようです</h1>
+  <% elsif @east > @west %>
+    <h1>東軍が優位です</h1>
+  <% elsif @west > @east %>
+    <h1>西軍が優位です</h1>
   <% end %>
+  <p>参戦はこちらから</p>
 </div>

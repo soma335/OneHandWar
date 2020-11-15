@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :combats, dependent: :destroy
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   enum belong: { east: 0, west: 1 }
   :less_than
 end
