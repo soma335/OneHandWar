@@ -1,4 +1,3 @@
-unicorn.rb
 app_path = File.expand_path('../../', __FILE__)
 
 #アプリケーションサーバの性能を決定する
