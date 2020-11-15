@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Wahu';
-  src: font-url('/assets/acgyosyo.ttf') format('truetype');
+  src: asset_url('/assets/acgyosyo.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,6 +28,7 @@ header {
 
 .index{
   text-align: center;
+
 }
 
 .registration_form{
@@ -39,13 +40,14 @@ header {
   line-height: 2em;
 }
 
-img.kamon{
+.index img{
   width:300px;
   height:300px;
 }
 
 .Book_cover{
   line-height: 8em;
+  text-align: center;
 }
 
 .notice{
@@ -54,6 +56,10 @@ img.kamon{
 }
 
 .description{
+  text-align: center;
+  position: relative;
+}
+.battle_field{
   text-align: center;
   position: relative;
 }
