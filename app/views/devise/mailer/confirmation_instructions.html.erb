@@ -1,5 +1,8 @@
-<p>ようこそ! <%= @email %>!</p>
-
+<p>ようこそ! <%= @email %>さん!</p>
+<br>
+<br>
 <p>下のリンクをクリックして、会員登録を進めてください!</p>
-
+<br>
+<br>
+<br>
 <p><%= link_to 'アカウントの本登録をする', confirmation_url(@resource, confirmation_token: @token) %></p>

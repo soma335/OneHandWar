@@ -32,6 +32,11 @@ header {
 
 .registration_form{
   text-align: center;
+  line-height: 2em;
+}
+.login_form{
+  text-align: center;
+  line-height: 2em;
 }
 
 img.kamon{
@@ -48,3 +53,12 @@ img.kamon{
   padding:50px;
 }
 
+.description{
+  text-align: center;
+  position: relative;
+}
+@media (max-width: 480px) {
+  h1{
+    font-size: 24px;
+  }
+}

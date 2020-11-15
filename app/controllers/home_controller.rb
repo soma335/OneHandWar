@@ -3,9 +3,6 @@ class HomeController < ApplicationController
     @east = Combat.joins(:user).where(users: {belong:0}).sum(:battle_record)
     @west = Combat.joins(:user).where(users: {belong:1}).sum(:battle_record)
     @battle_data = {'東軍' => @east, '西軍' => @west}
-    if user_signed_in?
-    @user_name = current_user.name
-    end
   end
 
   def show

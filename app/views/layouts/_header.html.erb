@@ -1,8 +1,12 @@
 <header>
-    <%= link_to '当サイトについて', '/home/1' %>
+  <%= link_to 'Top', '/' %>
+  <%= link_to '説明', '/home/1' %>
   <% if user_signed_in? %>
+    <div data-turbolinks="false">
+      <%= link_to '出陣する', '/users/' + current_user.id.to_s %>
+    </div>
     <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <%= link_to '離脱する', destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to '参戦する', new_user_registration_path %>
     <%= link_to '戦場に戻る', new_user_session_path %>
