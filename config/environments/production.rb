@@ -51,7 +51,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   config.assets.initialize_on_precompile = false
-  config.action_mailer.default_url_options = {  :host => 'quiet-lowlands-48910.herokuapp.com' }
+  config.action_mailer.default_url_options = {  :host => '34.225.235.239' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       address:"smtp.gmail.com",
