@@ -1,5 +1,5 @@
 <div class="Book_cover">
-  <%= image_tag 'atamaawasemitsusuhama.gif', class: "kamon" %>
+  <%= image_tag asset_path('atamaawasemitsusuhama.gif', class: "kamon") %>
   <h1>天下分け目の戦いに参戦しよう</h1>
   <h1>現在の戦況はこちらです</h1>
   <%= pie_chart @battle_data, colors: ['#557177', "#7F6967"] %>
