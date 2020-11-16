@@ -61,6 +61,7 @@ export default {
     },
     Bow: async function () {
       this.combat.battle_record++
+      debugger;
       this.modelSave().then(result => {
         return result
       })
