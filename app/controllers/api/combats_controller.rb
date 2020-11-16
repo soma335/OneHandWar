@@ -17,10 +17,8 @@ class Api::CombatsController < ApplicationController
   end
 
   def create
-    @tmp = Combat.find(current_user.id)
-    @test = @tmp.update(combat_params)
-
-
+    combat = Combat.find(current_user.id)
+    if combat.update(combat_params)
     @battle_all = Combat.all.sum(:battle_record)
     @east_strength = Combat.joins(:user).where(users: {belong:0}).sum(:battle_record)
     @west_strength = Combat.joins(:user).where(users: {belong:1}).sum(:battle_record)
@@ -32,6 +30,10 @@ class Api::CombatsController < ApplicationController
         render json: [ battle_all: @battle_all.to_json, east_strength: @east_strength.to_json,
                        west_strength: @west_strength.to_json, battle_record: @battle_record.to_json,
                        belong: @belong.to_json, user_name: @user_name.to_json ] }
+    end
+    else
+      @battle_all = "Error"
+      render json: @battle_all
     end
   end
 
