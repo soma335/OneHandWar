@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-*{
-  margin:0; padding:0;
+* {
+  margin: 0;
+  padding: 0;
   background-image: asset-url('washi.jpg');
-  background-size:100% auto;
+  background-size: 100% auto;
 }
 
 @font-face {
@@ -22,48 +23,72 @@ header {
   text-align: center;
 }
 
-*{
-  font-family: Times New Roman,'Wahu',serif,fantasy,sans-serif;
+* {
+  font-family: Times New Roman, 'Wahu', serif, fantasy, sans-serif;
 }
 
-.index{
+.index {
   text-align: center;
 }
 
-.registration_form{
-  text-align: center;
-  line-height: 2em;
-}
-.login_form{
+.registration_form {
   text-align: center;
   line-height: 2em;
 }
 
-.Book_cover img{
-  width:300px;
-  height:300px;
+.login_form {
+  text-align: center;
+  line-height: 2em;
 }
 
-.Book_cover{
+.Book_cover img {
+  width: 300px;
+  height: 300px;
+}
+
+.Book_cover {
   line-height: 8em;
   text-align: center;
 }
 
-.notice{
+.notice {
   text-align: center;
-  padding:50px;
+  padding: 50px;
 }
 
-.description{
+.description {
   text-align: center;
   position: relative;
+  line-height: 200%
 }
-.battle_field{
+
+.battle_field {
   text-align: center;
   position: relative;
+  line-height: 200%
 }
+
+.user_info_change {
+  text-align: center;
+  line-height: 2em;
+}
+
+.regist_link {
+  font-size: 30px;
+}
+
+.error {
+  text-align: center;
+  line-height: 2em;
+}
+
+.password_forget {
+  text-align: center;
+  line-height: 2em;
+}
+
 @media (max-width: 480px) {
-  h1{
+  h1 {
     font-size: 24px;
   }
 }
