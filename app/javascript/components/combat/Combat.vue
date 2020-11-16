@@ -50,12 +50,10 @@ export default {
   methods: {
     modelSave: async function () {
       const res = await axios.post('/api/combats', {battle_record: this.combat.battle_record})
-      if (res.status !== 201) {
+      if (res.status !== 200) {
         process.exit()
       }
-      this.fetchLikeByPostId().then(response => {
-        this.combat = response.data.shift();
-      })
+      this.combat = res.data.shift();
     },
     Sword: async function () {
       this.combat.battle_record++
