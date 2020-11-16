@@ -25,7 +25,8 @@ class Api::CombatsController < ApplicationController
       @battle_record = Combat.joins(:user).where(users: {id:current_user.id}).sum(:battle_record)
       @belong = current_user.belong
       @user_name = urrent_user.name
-      byebug
+      logger.debug(combat)
+      logger.debug(@battle_record)
       respond_to do |f|
         f.any {
           render json: [ battle_all: @battle_all.to_json, east_strength: @east_strength.to_json,
