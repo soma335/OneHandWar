@@ -18,8 +18,8 @@ class Api::CombatsController < ApplicationController
   end
 
   def create
-    @test = Combat.find(current_user.id)
-    @test.update(combat_params)
+    @tmp = Combat.find(current_user.id)
+    @battle_record = @tmp.update(combat_params)
     head :created
   end
 

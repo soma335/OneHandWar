@@ -30,13 +30,6 @@ export default {
     }
   },
 
-  watch: {
-    'combat.battle_record': function () {
-      this.fetchLikeByPostId().then(response => {
-        this.combat = response.data.shift();
-      })
-    }
-  },
 
   created: function () { //サーバからJsonデータを受信し、配列の最初の値をデータオブジェクトに格納
     this.fetchLikeByPostId().then(response => {
@@ -60,7 +53,9 @@ export default {
       if (res.status !== 201) {
         process.exit()
       }
-      return res
+      this.fetchLikeByPostId().then(response => {
+        this.combat = response.data.shift();
+      })
     },
     Sword: async function () {
       this.combat.battle_record++
