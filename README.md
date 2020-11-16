@@ -22,6 +22,7 @@ Rails 6.0.3
 ・Vue側でのグラフ表示
 ・レスポンシブデザイン対応
 ・docker/CircleCIの反映
+・SSL対応
 
 # 作者
 * 作成者
