@@ -31,7 +31,7 @@ export default {
   },
 
   created: function () { //サーバからJsonデータを受信し、配列の最初の値をデータオブジェクトに格納
-    this.fetchLikeByPostId().then(response => {
+    this.modelGet().then(response => {
       this.combat = response.data.shift();
     })
   },
@@ -52,7 +52,7 @@ export default {
       if (res.status !== 201) {
         process.exit()
       }
-      this.fetchLikeByPostId().then(response => {
+      this.modelGet().then(response => {
         this.combat = response.data.shift();
       })
     },
@@ -66,7 +66,7 @@ export default {
         return result
       })
     },
-    fetchLikeByPostId: async function () {
+    modelGet: async function () {
       const res = await axios.get(` /api/combats`)
       if (res.status !== 200) {
         process.exit()
