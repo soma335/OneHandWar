@@ -24,7 +24,7 @@ class Api::CombatsController < ApplicationController
       @west_strength = Combat.joins(:user).where(users: {belong:1}).sum(:battle_record)
       @battle_record = Combat.joins(:user).where(users: {id:current_user.id}).sum(:battle_record)
       @belong = current_user.belong
-      @user_name = urrent_user.name
+      @user_name = current_user.name
       logger.debug(combat)
       logger.debug(@battle_record)
       respond_to do |f|
