@@ -30,7 +30,6 @@ export default {
     }
   },
 
-
   created: function () { //サーバからJsonデータを受信し、配列の最初の値をデータオブジェクトに格納
     this.fetchLikeByPostId().then(response => {
       this.combat = response.data.shift();
@@ -50,10 +49,12 @@ export default {
   methods: {
     modelSave: async function () {
       const res = await axios.post('/api/combats', {battle_record: this.combat.battle_record})
-      if (res.status !== 200) {
+      if (res.status !== 201) {
         process.exit()
       }
-      this.combat = res.data.shift();
+      this.fetchLikeByPostId().then(response => {
+        this.combat = response.data.shift();
+      })
     },
     Sword: async function () {
       this.combat.battle_record++
@@ -61,7 +62,6 @@ export default {
     },
     Bow: async function () {
       this.combat.battle_record++
-      debugger;
       this.modelSave().then(result => {
         return result
       })
