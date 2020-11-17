@@ -6,8 +6,9 @@ OneHandWar
 # 内容
   
 Ruby on RailsとVue.jsの勉強のため作成したポートフォリオです。  
-Rails側ではdeviseによるユーザ登録機能を実装しています。  
+AWSによりデプロイしました。  
   
+Rails側ではdeviseによるユーザ登録機能を実装しています。  
 また、apiのコントローラでモデルの内容をJSONに出力しています。  
 Vue.jsでは、JSONでデータを受け取り、Vue.js内でデータに変更を加えています。  
   
