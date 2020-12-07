@@ -14,7 +14,7 @@
       <button @click="Bow()">弓を使う</button>
       <button @click="Gun()">銃を使う</button>
     </div>
-    <p v-show="loading">{{ readyToFire }}秒後に銃を使うボタンを押してください。</p>
+    <p v-if="gun_flag">{{ readyToFire }}秒後に銃を使うボタンを押してください。</p>
     <Loading v-show="loading"></Loading>
 
   </div>
@@ -37,7 +37,8 @@ export default {
       start: '',
       timer: '',
       interval: '',
-      accum: ''
+      accum: '',
+      gun_flag: false
     }
   },
 
@@ -90,11 +91,11 @@ export default {
       await this.modelSave()
     },
     Bow: async function () {
-      this.loading = true
+      alert('現在作成中です')
     },
     Gun: async function () {
-      if (this.loading == true) {
-        this.loading = false
+      if (this.gun_flag == true) {
+        this.gun_flag = false
         this.elapsedTime = (Date.now() - this.start) / 1000;
         this.result = this.elapsedTime.toFixed(3);
         this.diff = this.result - this.readyToFire;
@@ -111,7 +112,7 @@ export default {
           await this.modelSave()
         }
       } else {
-        this.loading = true
+        this.gun_flag = true;
         const min = 2;
         const max = 11;
         this.readyToFire = Math.floor(Math.random() * (max + 1 - min)) + min / 100;

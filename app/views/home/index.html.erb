@@ -10,8 +10,6 @@
   <% elsif @west > @east %>
     <h1>西軍が優位です</h1>
   <% end %>
-  <% if !user_signed_in? %>
-    <h1>あなたも戦場に参戦しましょう！</h1>
-    <%= link_to '参戦する', new_user_registration_path, {class: "regist_link"} %>
-  <% end %>
+  <h1>あなたも戦場に参戦しましょう！</h1>
+  <%= link_to '参戦する', new_user_registration_path, {class: "regist_link"} %>
 </div>
