@@ -12,19 +12,32 @@
     <div class="btn_all">
       <button @click="Sword()">剣を使う</button>
       <button @click="Bow()">弓を使う</button>
+      <button @click="Gun()">銃を使う</button>
     </div>
+    <p v-show="loading">{{ readyToFire }}秒後に銃を使うボタンを押してください。</p>
+    <Loading v-show="loading"></Loading>
+
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import {csrfToken} from 'rails-ujs'
+import Loading from '../Loading.vue'
 
 axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken()
 export default {
   data() {
     return {
-      combat: {}
+      combat: {
+        battle_record: ''
+      },
+      loading: false,
+      readyToFire: '',
+      start: '',
+      timer: '',
+      interval: '',
+      accum: ''
     }
   },
 
@@ -44,22 +57,66 @@ export default {
     }
   },
 
+  components: {
+    Loading,
+  },
+
   methods: {
+    reset: () => {
+      Object.assign(app.$data, app.$options.data());
+    },
+
+   sleep: function(sec){
+      return new Promise(function(resolve) {
+        setTimeout(function() {resolve()}, sec);
+      })
+    },
+
     modelSave: async function () {
-      const res = await axios.post('/api/combats', {battle_record: this.combat.battle_record})
+      const res = await axios.post('/api/combats', {combat: this.combat})
       if (res.status !== 201) {
         process.exit()
       }
+      await this.sleep(2000);
       this.modelGet().then(response => {
+        this.combat.reset
         this.combat = response.data.shift();
       })
+      this.loading = false;
     },
     Sword: async function () {
+      this.loading = true;
       this.combat.battle_record++
       await this.modelSave()
     },
     Bow: async function () {
-      alert('現在制作中です');
+      this.loading = true
+    },
+    Gun: async function () {
+      if (this.loading == true) {
+        this.loading = false
+        this.elapsedTime = (Date.now() - this.start) / 1000;
+        this.result = this.elapsedTime.toFixed(3);
+        this.diff = this.result - this.readyToFire;
+        alert(this.diff)
+        if (this.diff < -1.0) {
+          alert("発砲できませんでした・・・。")
+          alert(Math.abs(this.diff).toFixed(2) + "秒早いです。")
+        } else if (this.diff > 1.0) {
+          alert("発砲できませんでした・・・。")
+          alert(Math.abs(this.diff).toFixed(2) + "秒遅いです。")
+        } else {
+          alert("発砲成功!")
+          this.combat.battle_record = Number(this.combat.battle_record) + 50;
+          await this.modelSave()
+        }
+      } else {
+        this.loading = true
+        const min = 2;
+        const max = 11;
+        this.readyToFire = Math.floor(Math.random() * (max + 1 - min)) + min / 100;
+        this.start = Date.now();
+      }
     },
     modelGet: async function () {
       const res = await axios.get(` /api/combats`)
@@ -74,9 +131,10 @@ export default {
 </script>
 
 <style scoped>
-.button_all{
+.button_all {
   text-align: center;
 }
+
 button {
   padding: 0.5em 1em;
   text-decoration: none;
@@ -85,10 +143,11 @@ button {
   border-radius: 3px;
   color: #D2D0E8;
 }
+
 button:active {
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px); /*下に動く*/
+  border-bottom: none; /*線を消す*/
 }
 
 </style>
